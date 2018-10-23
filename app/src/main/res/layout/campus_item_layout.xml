@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginBottom="8dp">
+
+    <ImageView
+        android:id="@+id/titleIcon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_title"
+        android:scaleType="center"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/titleView"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/titleIcon"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/locationIcon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_location"
+        android:scaleType="center"
+        app:layout_constraintTop_toBottomOf="@id/titleIcon"
+        />
+
+    <TextView
+        android:id="@+id/locationView"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:text="28a Linwood Avenue, Mount Albert, Auckland 1025 New Zealand"
+        app:layout_constraintLeft_toRightOf="@id/locationIcon"
+        app:layout_constraintTop_toBottomOf="@id/titleView"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/phoneIcon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_phone"
+        android:scaleType="center"
+        app:layout_constraintTop_toBottomOf="@id/locationIcon"
+        />
+
+    <LinearLayout
+        android:id="@+id/phoneViewContainer"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toRightOf="@id/locationIcon"
+        app:layout_constraintTop_toBottomOf="@id/locationView"
+        app:layout_constraintRight_toRightOf="parent">
+        <TextView
+            android:id="@+id/phoneView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:text="@string/contact_ais_number_type_phone"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/faxViewContainer"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toRightOf="@id/locationIcon"
+        app:layout_constraintTop_toBottomOf="@id/phoneViewContainer"
+        app:layout_constraintRight_toRightOf="parent">
+        <TextView
+            android:id="@+id/faxView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:text="@string/contact_ais_number_type_fax"
+            />
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

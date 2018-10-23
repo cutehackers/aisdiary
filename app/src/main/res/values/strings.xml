@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">AisDiary</string>
+    <string name="mailto_contact_ais">enquiry@ais.ac.nz</string>
+    <string name="mailto_title">Contact AIS</string>
+
+    <string name="action_about_ais">About AIS</string>
+    <string name="action_schedule">Schedule</string>
+    <string name="action_diary">Diary</string>
+    <string name="action_contact_us">Contact Us</string>
+    <string name="action_done">Done</string>
+
+    <string name="action_campus">Campus</string>
+    <string name="action_transport">Transport</string>
+
+    <string name="contact_ais_number_type_phone">Phone</string>
+    <string name="contact_ais_number_type_fax">Fax</string>
+
+    <string name="diary_event_title">Event</string>
+    <string name="diary_task_title">Task</string>
+
+    <string name="event_empty">No events</string>
+    <string name="newevent_title_hint">Title</string>
+    <string name="newevent_location_hint">Location (optional)</string>
+    <string name="newevent_description_hint">Description (optional)</string>
+
+    <string name="msg_doesnt_support_mail_service">This device doesn\'t support email service. Please install email support application.</string>
+
+</resources>

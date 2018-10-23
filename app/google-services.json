@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "499992204854",
+    "firebase_url": "https://diary-1540024016512.firebaseio.com",
+    "project_id": "diary-1540024016512",
+    "storage_bucket": "diary-1540024016512.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499992204854:android:efc2d2dc0014a1c9",
+        "android_client_info": {
+          "package_name": "com.ais.mobile.jhlee.aisdiary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499992204854-i90duevjmnchbln96jk49r6mo2ujo7fh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ais.mobile.jhlee.aisdiary",
+            "certificate_hash": "35f70e90e7435adb080be1edff009dd7054e0791"
+          }
+        },
+        {
+          "client_id": "499992204854-9mt0cgtrpqhu6ovslgv85hunf7do0a0q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ais.mobile.jhlee.aisdiary",
+            "certificate_hash": "e657a0b622a0e107e01cfef5f690c872bc7c7e5e"
+          }
+        },
+        {
+          "client_id": "499992204854-3o13kckf2ppg43c0duthokuq519udrv7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbHWTm-nhcLZd5KAaTpSPBas5sFNFTCqs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499992204854-3o13kckf2ppg43c0duthokuq519udrv7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

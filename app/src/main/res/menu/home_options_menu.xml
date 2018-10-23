@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_about_ais"
+        android:icon="@drawable/ic_school"
+        android:title="@string/action_about_ais"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_schedule"
+        android:icon="@drawable/ic_schedule"
+        android:title="@string/action_schedule"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_diary"
+        android:icon="@drawable/ic_diary"
+        android:title="@string/action_diary"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_contact_us"
+        android:icon="@drawable/ic_contact_us"
+        android:title="@string/action_contact_us"
+        app:showAsAction="always"/>
+</menu>
