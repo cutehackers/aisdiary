@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class ContactAisDataSource {
 
-    private static ContactAisDataSource instance;
+    private static ContactAisDataSource INSTANCE;
 
     private CampusDao campusDao = new CampusDao();
     private TransportDao transportDao = new TransportDao();
@@ -23,12 +23,12 @@ public class ContactAisDataSource {
     private ContactAisDataSource() { }
 
     public static ContactAisDataSource instance() {
-        if (instance == null) {
+        if (INSTANCE == null) {
             synchronized (ContactAisDataSource.class) {
-                instance = new ContactAisDataSource();
+                INSTANCE = new ContactAisDataSource();
             }
         }
-        return instance;
+        return INSTANCE;
     }
 
     public final void createTables(SQLiteDatabase database) {

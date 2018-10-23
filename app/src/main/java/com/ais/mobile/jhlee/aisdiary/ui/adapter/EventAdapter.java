@@ -8,8 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ais.mobile.jhlee.aisdiary.R;
+import com.ais.mobile.jhlee.aisdiary.app.diary.domain.model.Event;
 import com.ais.mobile.jhlee.aisdiary.ui.view.EventViewHolder;
+import com.ais.mobile.jhlee.aisdiary.utils.DateTimeManager;
 
+import java.text.ParseException;
 import java.util.List;
 
 /**
@@ -19,7 +22,7 @@ import java.util.List;
  */
 public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
 
-    private List<Integer> data = null;
+    private List<Event> data = null;
 
     @Override
     public int getItemCount() {
@@ -35,8 +38,27 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EventViewHolder eventViewHolder, int position) {
+    public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
+        Event item = data.get(position);
 
+        boolean showTopDate;
+        if (position == 0) {
+            showTopDate = true;
+        } else {
+            try {
+                showTopDate = !DateTimeManager.isSameDay(item.getStartTimeAsDate(), data.get(position - 1).getStartTimeAsDate());
+            } catch (ParseException e) {
+                e.printStackTrace();
+                showTopDate = false;
+            }
+        }
+
+        holder.bind(item, showTopDate);
+    }
+
+    public void update(List<Event> data) {
+        this.data = data;
+        notifyDataSetChanged();
     }
 
 }

@@ -9,4 +9,7 @@ import com.ais.mobile.jhlee.aisdiary.mvp.MvpView;
  */
 public interface EventView extends MvpView {
 
+    void showEmptyView();
+
+    void showEventView();
 }

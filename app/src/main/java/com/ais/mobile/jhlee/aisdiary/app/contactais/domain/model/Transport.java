@@ -17,7 +17,7 @@ import com.ais.mobile.jhlee.aisdiary.app.contactais.domain.TransportDao;
  */
 public class Transport {
 
-    private long id;
+    private long id = -1;
     private String type;
     private String title;
     private String address;

@@ -18,12 +18,9 @@ public class AndroidContext {
 
     private Navigator navigator = new Navigator();
 
-    private Database database;
-
 
     private AndroidContext(MyApplication application) {
         this.application = application;
-        database = new Database(application);
     }
 
     public static void initialize(@NonNull MyApplication application) {
@@ -47,9 +44,5 @@ public class AndroidContext {
 
     public Navigator navigator() {
         return this.navigator;
-    }
-
-    public Database database() {
-        return this.database;
     }
 }

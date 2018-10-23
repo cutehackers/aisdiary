@@ -24,5 +24,6 @@
     <string name="newevent_description_hint">Description (optional)</string>
 
     <string name="msg_doesnt_support_mail_service">This device doesn\'t support email service. Please install email support application.</string>
+    <string name="msg_invalid_event_data">Invalid event data.</string>
 
 </resources>

@@ -2,6 +2,7 @@ package com.ais.mobile.jhlee.aisdiary.app.welcome;
 
 import android.os.Bundle;
 
+import com.ais.mobile.jhlee.aisdiary.R;
 import com.ais.mobile.jhlee.aisdiary.base.AndroidContext;
 import com.ais.mobile.jhlee.aisdiary.base.BaseActivity;
 

@@ -18,7 +18,7 @@ import com.ais.mobile.jhlee.aisdiary.app.contactais.domain.CampusDao;
  */
 public class Campus {
 
-    private long id;
+    private long id = -1;
     private String name;
     private String address;
     private String phone;
