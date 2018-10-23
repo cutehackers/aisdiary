@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.ais.mobile.jhlee.aisdiary.R;
 import com.ais.mobile.jhlee.aisdiary.mvp.MvpActivityView;
@@ -16,6 +18,13 @@ import com.ais.mobile.jhlee.aisdiary.mvp.MvpActivityView;
 public class NewEventActivityView extends MvpActivityView<NewEventView, NewEventPresenter<NewEventView>> implements
         NewEventView {
 
+    private EditText titleView;
+    private TextView startDateView;
+    private TextView startTimeView;
+    private TextView endDateView;
+    private TextView endTimeView;
+
+
     //----------------------------------------------------------------------------------------------
     // overrides
 
@@ -24,6 +33,8 @@ public class NewEventActivityView extends MvpActivityView<NewEventView, NewEvent
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.fragment_new_event);
+
+        setUpViews();
     }
 
     @Override
@@ -61,4 +72,10 @@ public class NewEventActivityView extends MvpActivityView<NewEventView, NewEvent
 
     //----------------------------------------------------------------------------------------------
     // methods
+
+    private void setUpViews() {
+        titleView = findViewById(R.id.titleView);
+        startDateView = findViewById(R.id.startDateView);
+        startTimeView = findViewById(R.id.startTimeView);
+    }
 }

@@ -85,7 +85,7 @@
                 android:orientation="horizontal"
                 android:layout_below="@id/startView">
                 <TextView
-                    android:id="@+id/fromDateView"
+                    android:id="@+id/startDateView"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="0.3"
@@ -95,7 +95,7 @@
                     android:ems="10"/>
 
                 <TextView
-                    android:id="@+id/fromTimeView"
+                    android:id="@+id/startTimeView"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="0.7"
