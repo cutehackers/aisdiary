@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.format.DateUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.DatePicker;
@@ -133,7 +134,13 @@ public class NewEventActivityView extends MvpActivityView<NewEventView, NewEvent
         locationView = findViewById(R.id.locationView);
         descriptionView = findViewById(R.id.descriptionView);
 
-        final Calendar calendar = Calendar.getInstance();
+        /*
+         * set initial start, end time
+         */
+        final Calendar newStartTime = Calendar.getInstance();
+        final Calendar newEndTime = Calendar.getInstance();
+        newEndTime.setTime(newStartTime.getTime());
+        newEndTime.add(Calendar.HOUR_OF_DAY, 1);
 
         startDateView.setOnClickListener(view -> {
             DatePickerDialog picker = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
@@ -143,9 +150,9 @@ public class NewEventActivityView extends MvpActivityView<NewEventView, NewEvent
                     startTime.set(Calendar.MONTH, month);
                     startTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                    startDateView.setText(Database.ISO8601DATE.format(startTime.getTime()));
+                    setStartDate(startTime.getTime());
                 }
-            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+            }, newStartTime.get(Calendar.YEAR), newStartTime.get(Calendar.MONTH), newStartTime.get(Calendar.DAY_OF_MONTH));
 
             picker.show();
         });
@@ -157,9 +164,9 @@ public class NewEventActivityView extends MvpActivityView<NewEventView, NewEvent
                     startTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
                     startTime.set(Calendar.MINUTE, minute);
 
-                    startDateView.setText(Database.ISO8601TIME.format(startTime.getTime()));
+                    setStartTime(startTime.getTime());
                 }
-            }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false);
+            }, newStartTime.get(Calendar.HOUR_OF_DAY), newStartTime.get(Calendar.MINUTE), false);
 
             picker.show();
         });
@@ -172,9 +179,9 @@ public class NewEventActivityView extends MvpActivityView<NewEventView, NewEvent
                     endTime.set(Calendar.MONTH, month);
                     endTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                    endDateView.setText(Database.ISO8601DATE.format(startTime.getTime()));
+                    setEndDate(endTime.getTime());
                 }
-            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+            }, newStartTime.get(Calendar.YEAR), newStartTime.get(Calendar.MONTH), newStartTime.get(Calendar.DAY_OF_MONTH));
 
             picker.show();
         });
@@ -186,12 +193,17 @@ public class NewEventActivityView extends MvpActivityView<NewEventView, NewEvent
                     endTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
                     endTime.set(Calendar.MINUTE, minute);
 
-                    endTimeView.setText(Database.ISO8601TIME.format(startTime.getTime()));
+                    setEndTime(endTime.getTime());
                 }
-            }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false);
+            }, newStartTime.get(Calendar.HOUR_OF_DAY), newStartTime.get(Calendar.MINUTE), false);
 
             picker.show();
         });
+
+        setStartDate(newStartTime.getTime());
+        setStartTime(newStartTime.getTime());
+        setEndDate(newEndTime.getTime());
+        setEndTime(newEndTime.getTime());
     }
 
     public boolean ensureValidData() {
@@ -204,5 +216,21 @@ public class NewEventActivityView extends MvpActivityView<NewEventView, NewEvent
 
     private boolean isNotEmpty(CharSequence str) {
         return str != null && str.length() > 0;
+    }
+
+    private void setStartDate(Date date) {
+        startDateView.setText(Database.ISO8601DATE.format(date));
+    }
+
+    private void setStartTime(Date date) {
+        startTimeView.setText(Database.ISO8601TIME.format(date));
+    }
+
+    private void setEndDate(Date date) {
+        endDateView.setText(Database.ISO8601DATE.format(date));
+    }
+
+    private void setEndTime(Date date) {
+        endTimeView.setText(Database.ISO8601TIME.format(date));
     }
 }
