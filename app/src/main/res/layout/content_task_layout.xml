@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EditText
+    style="@style/Widget.AppCompat.EditText"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/contentView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp"
+    android:gravity="top"
+    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+    android:ems="10"
+    android:inputType="textMultiLine"
+    android:hint="@string/new_task_content_hint"
+    />

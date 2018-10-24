@@ -2,6 +2,8 @@
     <string name="app_name">AisDiary</string>
     <string name="new_event_activity_title">New event</string>
     <string name="edit_event_activity_title">Edit event</string>
+    <string name="new_task_activity_title">New task</string>
+    <string name="edit_task_activity_title">Edit task</string>
     <string name="mailto_contact_ais">enquiry@ais.ac.nz</string>
     <string name="mailto_title">Contact AIS</string>
 
@@ -10,6 +12,7 @@
     <string name="action_diary">Diary</string>
     <string name="action_contact_us">Contact Us</string>
     <string name="action_done">Done</string>
+    <string name="action_delete">Delete</string>
 
     <string name="action_campus">Campus</string>
     <string name="action_transport">Transport</string>
@@ -20,14 +23,20 @@
     <string name="diary_event_title">Event</string>
     <string name="diary_task_title">Task</string>
 
-    <string name="event_empty">No events</string>
+    <string name="empty_event">No events</string>
     <string name="newevent_title_hint">Title</string>
     <string name="newevent_location_hint">Location (optional)</string>
     <string name="newevent_description_hint">Description (optional)</string>
 
+    <string name="empty_task">No tasks</string>
+    <string name="new_task_content_hint">New task</string>
+
     <string name="msg_doesnt_support_mail_service">This device doesn\'t support email service. Please install email support application.</string>
     <string name="msg_invalid_event_data">Invalid event data.</string>
     <string name="msg_event_successfully_deleted">Event successfully deleted.</string>
-    <string name="msg_event_successfully_edited">Event successfully edit.</string>
+    <string name="msg_event_successfully_edited">Event successfully edited.</string>
+    <string name="msg_invalid_task_data">Invalid task data.</string>
+    <string name="msg_task_successfully_deleted">Task successfully deleted.</string>
+    <string name="msg_task_successfully_edited">Task successfully edited.</string>
 
 </resources>

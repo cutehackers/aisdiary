@@ -5,7 +5,6 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.format.DateUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.DatePicker;
@@ -16,7 +15,6 @@ import android.widget.Toast;
 
 import com.ais.mobile.jhlee.aisdiary.R;
 import com.ais.mobile.jhlee.aisdiary.base.AndroidContext;
-import com.ais.mobile.jhlee.aisdiary.base.Database;
 import com.ais.mobile.jhlee.aisdiary.mvp.MvpActivityView;
 import com.ais.mobile.jhlee.aisdiary.utils.DateTimeManager;
 
@@ -50,7 +48,7 @@ public class NewEventActivityView extends MvpActivityView<NewEventView, NewEvent
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.fragment_new_event);
+        setContentView(R.layout.activity_new_event);
 
         setUpViews();
     }
@@ -81,7 +79,7 @@ public class NewEventActivityView extends MvpActivityView<NewEventView, NewEvent
     }
 
     //----------------------------------------------------------------------------------------------
-    // implements: MvpFragmentView
+    // implements: MvpActivityView
 
     @Override
     protected NewEventPresenter<NewEventView> onCreatePresenter() {
@@ -122,6 +120,7 @@ public class NewEventActivityView extends MvpActivityView<NewEventView, NewEvent
         setResult(Activity.RESULT_OK);
         finish();
     }
+
 
     //----------------------------------------------------------------------------------------------
     // methods

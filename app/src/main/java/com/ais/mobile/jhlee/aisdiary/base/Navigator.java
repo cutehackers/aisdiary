@@ -4,14 +4,18 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
 import com.ais.mobile.jhlee.aisdiary.R;
 import com.ais.mobile.jhlee.aisdiary.app.contactais.ContactAisActivityView;
 import com.ais.mobile.jhlee.aisdiary.app.diary.DiaryActivityView;
 import com.ais.mobile.jhlee.aisdiary.app.diary.EditEventActivityView;
+import com.ais.mobile.jhlee.aisdiary.app.diary.EditTaskActivityView;
 import com.ais.mobile.jhlee.aisdiary.app.diary.NewEventActivityView;
+import com.ais.mobile.jhlee.aisdiary.app.diary.NewTaskActivityView;
 import com.ais.mobile.jhlee.aisdiary.app.diary.domain.model.Event;
+import com.ais.mobile.jhlee.aisdiary.app.diary.domain.model.Task;
 import com.ais.mobile.jhlee.aisdiary.app.home.HomeActivityView;
 
 /**
@@ -23,6 +27,8 @@ public class Navigator {
 
     public static final int RC_HANDLE_NEW_EVENT = 0X8601;
     public static final int RC_HANDLE_EDIT_EVENT = 0X8602;
+    public static final int RC_HANDLE_NEW_TASK = 0X8603;
+    public static final int RC_HANDLE_EDIT_TASK = 0X8604;
 
     public void navigateToHomeActivityView(Context context) {
         context.startActivity(new Intent(context, HomeActivityView.class));
@@ -32,8 +38,8 @@ public class Navigator {
         context.startActivity(new Intent(context, DiaryActivityView.class));
     }
 
-    public void requestToNewEventActivityView(Activity activity, int requestCode) {
-        activity.startActivityForResult(new Intent(activity, NewEventActivityView.class), requestCode);
+    public void requestToNewEventActivityView(Fragment fragment, int requestCode) {
+        fragment.startActivityForResult(new Intent(fragment.getContext(), NewEventActivityView.class), requestCode);
     }
 
     public void requestToEditEventActivityView(Activity activity, Event event, int requestCode) {
@@ -41,6 +47,16 @@ public class Navigator {
         intent.putExtra(EditEventActivityView.ARGS_EVENT, event);
 
         activity.startActivityForResult(intent, requestCode);
+    }
+
+    public void requestToNewTaskActivityView(Fragment fragment, int requestCode) {
+        fragment.startActivityForResult(new Intent(fragment.getContext(), NewTaskActivityView.class), requestCode);
+    }
+
+    public void requestToEditTaskActivityView(Fragment fragment, Task task, int requestCode) {
+        Intent intent = new Intent(fragment.getContext(), EditTaskActivityView.class);
+        intent.putExtra(EditTaskActivityView.ARGS_TASK, task);
+        fragment.startActivityForResult(intent, requestCode);
     }
 
     public void navigateToContactUsActivityView(Context context) {

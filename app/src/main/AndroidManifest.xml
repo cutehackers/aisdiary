@@ -53,11 +53,17 @@
         <activity android:name=".app.diary.DiaryActivityView" />
         <activity
             android:name=".app.diary.NewEventActivityView"
-            android:label="@string/new_event_activity_title"
-            />
+            android:label="@string/new_event_activity_title" />
         <activity
             android:name=".app.diary.EditEventActivityView"
-            android:label="@string/edit_event_activity_title"
+            android:label="@string/edit_event_activity_title" />
+        <activity
+            android:name=".app.diary.NewTaskActivityView"
+            android:label="@string/new_task_activity_title"
+            />
+        <activity
+            android:name=".app.diary.EditTaskActivityView"
+            android:label="@string/edit_task_activity_title"
             />
     </application>
 

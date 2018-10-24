@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.ais.mobile.jhlee.aisdiary.ui.adapter.DiaryPagerAdapter;
 public class DiaryActivityView extends BaseActivity {
 
     private ViewPager tabContents;
+    private DiaryPagerAdapter tabAdapter;
 
 
     //----------------------------------------------------------------------------------------------
@@ -41,7 +43,8 @@ public class DiaryActivityView extends BaseActivity {
 
     private void setUpViews() {
         tabContents = findViewById(R.id.tabContentsView);
-        tabContents.setAdapter(new DiaryPagerAdapter(getSupportFragmentManager()));
+        tabAdapter = new DiaryPagerAdapter(getSupportFragmentManager());
+        tabContents.setAdapter(tabAdapter);
 
         TabLayout tabs = findViewById(R.id.tabsView);
         tabs.setupWithViewPager(tabContents);
@@ -54,12 +57,15 @@ public class DiaryActivityView extends BaseActivity {
 
         switch (current) {
             case DiaryPagerAdapter.DIARY_CONTENT_EVENT: {
+                Fragment fragment = tabAdapter.getFragment(DiaryPagerAdapter.DIARY_CONTENT_TASK);
                 AndroidContext.instance().navigator()
-                        .requestToNewEventActivityView(this, Navigator.RC_HANDLE_NEW_EVENT);
+                        .requestToNewEventActivityView(fragment, Navigator.RC_HANDLE_NEW_EVENT);
             } break;
 
             case DiaryPagerAdapter.DIARY_CONTENT_TASK: {
-
+                Fragment fragment = tabAdapter.getFragment(DiaryPagerAdapter.DIARY_CONTENT_TASK);
+                AndroidContext.instance().navigator()
+                        .requestToNewTaskActivityView(fragment, Navigator.RC_HANDLE_NEW_TASK);
             } break;
         }
     }

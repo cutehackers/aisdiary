@@ -31,9 +31,9 @@ public class DiaryDataSource {
         return INSTANCE;
     }
 
-    public final void createTables(SQLiteDatabase databse) {
-        databse.execSQL(EventDao.SQL_CREATE);
-        databse.execSQL(TaskDao.SQL_CREATE);
+    public final void createTables(SQLiteDatabase database) {
+        database.execSQL(EventDao.SQL_CREATE);
+        database.execSQL(TaskDao.SQL_CREATE);
     }
 
     public final void dropTables(SQLiteDatabase database) {

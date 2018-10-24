@@ -44,7 +44,9 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
 
         itemView.setOnClickListener( view -> {
             Event tag = (Event) view.getTag();
-            EventViewHolder.this.onEventItemClickListener.onEventItemClick(EventViewHolder.this, tag);
+            if (EventViewHolder.this.onEventItemClickListener != null) {
+                EventViewHolder.this.onEventItemClickListener.onEventItemClick(EventViewHolder.this, tag);
+            }
         });
     }
 

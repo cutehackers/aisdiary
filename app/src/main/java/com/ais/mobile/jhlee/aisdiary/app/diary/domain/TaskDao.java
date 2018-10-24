@@ -30,8 +30,8 @@ public class TaskDao {
             = String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "%s TEXT NOT NULL, " +
                     "%s NUMERIC DEFAULT 0, " +
-                    "%s DATETIME DEFAULT (datetime('now','localtime')), " +
-                    "%s DATETIME);",
+                    "%s DATETIME DEFAULT (datetime('now')), " +
+                    "%s DATETIME DEFAULT (datetime('now')));",
             TABLE_NAME,
             COLUMN_ID,
             COLUMN_CONTENT,
@@ -42,12 +42,16 @@ public class TaskDao {
     static final String SQL_DROP = String.format("DROP TABLE IF EXISTS %s", TABLE_NAME);
 
     private static final String SQL_READ
-            = String.format("SELECT * FROM %s ORDER BY date(%s) DESC;", TABLE_NAME, COLUMN_CREATED);
+            = String.format("SELECT * FROM %s ORDER BY %s DESC;", TABLE_NAME, COLUMN_CREATED);
 
     //private static final String SQL_DELETE_BY_ID = String.format("DELETE FROM %s WHERE %s = ?;", TABLE_NAME, COLUMN_ID);
 
     public long add(SQLiteDatabase database, Task task) {
-        return database.insert(TABLE_NAME, null, task.toContentValues());
+        Date date = new Date();
+        task.setCreated(Database.ISO8601.format(date));
+        task.setUpdated(Database.ISO8601.format(date));
+
+        return database.insert(TABLE_NAME, null, task.toContentValues(false));
     }
 
     public List<Task> getList(SQLiteDatabase database) {

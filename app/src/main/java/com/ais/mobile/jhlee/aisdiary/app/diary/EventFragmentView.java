@@ -30,6 +30,7 @@ public class EventFragmentView extends MvpFragmentView<EventView, EventPresenter
     private Handler handler = new Handler();
 
     private View emptyView;
+    private View eventViewContainer;
     private RecyclerView eventView;
     private LinearLayoutManager eventLayoutManager;
 
@@ -99,13 +100,13 @@ public class EventFragmentView extends MvpFragmentView<EventView, EventPresenter
     @Override
     public void showEmptyView() {
         emptyView.setVisibility(View.VISIBLE);
-        eventView.setVisibility(View.GONE);
+        eventViewContainer.setVisibility(View.GONE);
     }
 
     @Override
     public void showEventView() {
         emptyView.setVisibility(View.GONE);
-        eventView.setVisibility(View.VISIBLE);
+        eventViewContainer.setVisibility(View.VISIBLE);
     }
 
 
@@ -115,6 +116,7 @@ public class EventFragmentView extends MvpFragmentView<EventView, EventPresenter
     private void setUpViews(View container) {
         emptyView = container.findViewById(R.id.emptyView);
         eventView = container.findViewById(R.id.eventView);
+        eventViewContainer = container.findViewById(R.id.eventViewContainer);
 
         eventLayoutManager = new LinearLayoutManager(getContext());
         eventView.setLayoutManager(eventLayoutManager);
