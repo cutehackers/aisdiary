@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.ais.mobile.jhlee.aisdiary.R;
+import com.ais.mobile.jhlee.aisdiary.base.AndroidContext;
 import com.ais.mobile.jhlee.aisdiary.base.Navigator;
 import com.ais.mobile.jhlee.aisdiary.mvp.MvpFragmentView;
 
@@ -68,6 +69,10 @@ public class EventFragmentView extends MvpFragmentView<EventView, EventPresenter
         if (requestCode == Navigator.RC_HANDLE_NEW_EVENT && resultCode == Activity.RESULT_OK) {
             // reload
         }
+
+        if (requestCode == Navigator.RC_HANDLE_EDIT_EVENT && resultCode == Activity.RESULT_OK) {
+            // reload
+        }
     }
 
     @Override
@@ -114,7 +119,11 @@ public class EventFragmentView extends MvpFragmentView<EventView, EventPresenter
         eventLayoutManager = new LinearLayoutManager(getContext());
         eventView.setLayoutManager(eventLayoutManager);
         eventView.setHasFixedSize(true);
-        eventView.setAdapter(presenter.getOrCreateAdapter());
+        eventView.setAdapter(presenter.getOrCreateAdapter((holder, event) -> {
+            // event item click event
+            AndroidContext.instance().navigator()
+                    .requestToEditEventActivityView(getActivity(), event, Navigator.RC_HANDLE_EDIT_EVENT);
+        }));
     }
 
 }

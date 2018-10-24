@@ -12,20 +12,16 @@ import com.ais.mobile.jhlee.aisdiary.app.diary.domain.model.Event;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import static com.ais.mobile.jhlee.aisdiary.utils.DateTimeManager.DATE_FORMAT;
+import static com.ais.mobile.jhlee.aisdiary.utils.DateTimeManager.DURATION_TIME_FORMAT;
+import static com.ais.mobile.jhlee.aisdiary.utils.DateTimeManager.UPDATE_TIME_FORMAT;
+
 /**
  * Created: 23/10/2018
  * Author: Jun Hyoung Lee
  * Email: niceguy0315@hotmail.com
  */
 public class EventViewHolder extends RecyclerView.ViewHolder {
-
-    /**
-     * Date date = ISO8601.parse("2018-10-18 12:39:50");
-     * String datetime = ISO8601.format(date);
-     */
-    public static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("EEEE dd MMM yyyy");
-    public static SimpleDateFormat UPDATE_TIME_FORMAT = new SimpleDateFormat("HH:mm aa");
-    public static SimpleDateFormat DURATION_TIME_FORMAT = new SimpleDateFormat("EEE dd MMM HH:mm aa");
 
     private TextView dateView;
     private TextView titleView;
@@ -34,7 +30,9 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
     private TextView locationView;
     private TextView descriptionView;
 
-    public EventViewHolder(@NonNull View itemView) {
+    private OnEventItemClickListener onEventItemClickListener;
+
+    public EventViewHolder(@NonNull View itemView, OnEventItemClickListener onEventItemClickListener) {
         super(itemView);
         dateView = itemView.findViewById(R.id.dateView);
         titleView = itemView.findViewById(R.id.titleView);
@@ -42,6 +40,12 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
         durationView = itemView.findViewById(R.id.durationView);
         locationView = itemView.findViewById(R.id.locationView);
         descriptionView = itemView.findViewById(R.id.descriptionView);
+        this.onEventItemClickListener = onEventItemClickListener;
+
+        itemView.setOnClickListener( view -> {
+            Event tag = (Event) view.getTag();
+            EventViewHolder.this.onEventItemClickListener.onEventItemClick(EventViewHolder.this, tag);
+        });
     }
 
     public void bind(Event event, boolean showTopDate) {
@@ -82,5 +86,7 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
             descriptionView.setText(event.getDescription());
             descriptionView.setVisibility(View.VISIBLE);
         }
+
+        itemView.setTag(event);
     }
 }

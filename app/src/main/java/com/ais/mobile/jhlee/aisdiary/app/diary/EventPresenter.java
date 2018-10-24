@@ -8,6 +8,7 @@ import com.ais.mobile.jhlee.aisdiary.app.diary.domain.EventDao;
 import com.ais.mobile.jhlee.aisdiary.app.diary.domain.model.Event;
 import com.ais.mobile.jhlee.aisdiary.mvp.MvpPresenter;
 import com.ais.mobile.jhlee.aisdiary.ui.adapter.EventAdapter;
+import com.ais.mobile.jhlee.aisdiary.ui.view.OnEventItemClickListener;
 
 import java.util.List;
 
@@ -26,9 +27,9 @@ public class EventPresenter<VIEW extends EventView> extends MvpPresenter<VIEW> {
         super(view);
     }
 
-    public EventAdapter getOrCreateAdapter() {
+    public EventAdapter getOrCreateAdapter(OnEventItemClickListener onItemClickListener) {
         if (adapter == null) {
-            adapter = new EventAdapter();
+            adapter = new EventAdapter(onItemClickListener);
         }
         return adapter;
     }

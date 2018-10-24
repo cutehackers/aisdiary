@@ -1,6 +1,8 @@
 package com.ais.mobile.jhlee.aisdiary.app.diary.domain.model;
 
 import android.content.ContentValues;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.ais.mobile.jhlee.aisdiary.app.diary.domain.EventDao;
 import com.ais.mobile.jhlee.aisdiary.base.Database;
@@ -13,7 +15,7 @@ import java.util.Date;
  * Author: Jun Hyoung Lee
  * Email: niceguy0315@hotmail.com
  */
-public class Event {
+public class Event implements Parcelable {
 
     private long id = -1;
     private String type;
@@ -24,6 +26,8 @@ public class Event {
     private String description;
     private String created;
     private String updated;
+
+    public Event() { }
 
     public long getId() {
         return id;
@@ -127,4 +131,45 @@ public class Event {
         if (withId) values.put(EventDao.COLUMN_ID, id);
         return values;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(id);
+        dest.writeString(type);
+        dest.writeString(title);
+        dest.writeString(startTime);
+        dest.writeString(endTime);
+        dest.writeString(location);
+        dest.writeString(description);
+        dest.writeString(created);
+        dest.writeString(updated);
+    }
+
+    public Event(Parcel in) {
+        id = in.readLong();
+        type = in.readString();
+        title = in.readString();
+        startTime = in.readString();
+        endTime = in.readString();
+        location = in.readString();
+        description = in.readString();
+        created = in.readString();
+        updated = in.readString();
+    }
+
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public Event createFromParcel(Parcel in) {
+            return new Event(in);
+        }
+
+        public Event[] newArray(int size) {
+            return new Event[size];
+        }
+    };
+
 }

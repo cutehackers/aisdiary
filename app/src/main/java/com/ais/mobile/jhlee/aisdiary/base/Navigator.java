@@ -9,7 +9,9 @@ import android.widget.Toast;
 import com.ais.mobile.jhlee.aisdiary.R;
 import com.ais.mobile.jhlee.aisdiary.app.contactais.ContactAisActivityView;
 import com.ais.mobile.jhlee.aisdiary.app.diary.DiaryActivityView;
+import com.ais.mobile.jhlee.aisdiary.app.diary.EditEventActivityView;
 import com.ais.mobile.jhlee.aisdiary.app.diary.NewEventActivityView;
+import com.ais.mobile.jhlee.aisdiary.app.diary.domain.model.Event;
 import com.ais.mobile.jhlee.aisdiary.app.home.HomeActivityView;
 
 /**
@@ -20,6 +22,7 @@ import com.ais.mobile.jhlee.aisdiary.app.home.HomeActivityView;
 public class Navigator {
 
     public static final int RC_HANDLE_NEW_EVENT = 0X8601;
+    public static final int RC_HANDLE_EDIT_EVENT = 0X8602;
 
     public void navigateToHomeActivityView(Context context) {
         context.startActivity(new Intent(context, HomeActivityView.class));
@@ -31,6 +34,13 @@ public class Navigator {
 
     public void requestToNewEventActivityView(Activity activity, int requestCode) {
         activity.startActivityForResult(new Intent(activity, NewEventActivityView.class), requestCode);
+    }
+
+    public void requestToEditEventActivityView(Activity activity, Event event, int requestCode) {
+        Intent intent = new Intent(activity, EditEventActivityView.class);
+        intent.putExtra(EditEventActivityView.ARGS_EVENT, event);
+
+        activity.startActivityForResult(intent, requestCode);
     }
 
     public void navigateToContactUsActivityView(Context context) {

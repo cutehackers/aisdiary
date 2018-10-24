@@ -1,5 +1,6 @@
 package com.ais.mobile.jhlee.aisdiary.utils;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -9,6 +10,14 @@ import java.util.Date;
  * Email: niceguy0315@hotmail.com
  */
 public class DateTimeManager {
+
+    /**
+     * Date date = ISO8601.parse("2018-10-18 12:39:50");
+     * String datetime = ISO8601.format(date);
+     */
+    public static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("EEEE dd MMM yyyy");
+    public static SimpleDateFormat UPDATE_TIME_FORMAT = new SimpleDateFormat("HH:mm aa");
+    public static SimpleDateFormat DURATION_TIME_FORMAT = new SimpleDateFormat("EEE dd MMM HH:mm aa");
 
     public static boolean isSameDay(Date date1, Date date2) {
         if (date1 == null || date2 == null) {

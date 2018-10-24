@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import com.ais.mobile.jhlee.aisdiary.R;
 import com.ais.mobile.jhlee.aisdiary.app.diary.domain.model.Event;
 import com.ais.mobile.jhlee.aisdiary.ui.view.EventViewHolder;
+import com.ais.mobile.jhlee.aisdiary.ui.view.OnEventItemClickListener;
 import com.ais.mobile.jhlee.aisdiary.utils.DateTimeManager;
 
 import java.text.ParseException;
@@ -23,6 +24,11 @@ import java.util.List;
 public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
 
     private List<Event> data = null;
+    private OnEventItemClickListener onItemClickListener;
+
+    public EventAdapter(OnEventItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
 
     @Override
     public int getItemCount() {
@@ -34,7 +40,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
     public EventViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.event_item_layout, viewGroup, false);
-        return new EventViewHolder(view);
+        return new EventViewHolder(view, onItemClickListener);
     }
 
     @Override
