@@ -75,7 +75,6 @@ public class LecturerFragmentView extends MvpFragmentView<LecturerView, Lecturer
     //----------------------------------------------------------------------------------------------
     // overrides
 
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -198,6 +197,10 @@ public class LecturerFragmentView extends MvpFragmentView<LecturerView, Lecturer
 
         adapter = new LecturerAdapter((holder, lecturer) -> {
             // navigate to lecturer detail view
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, LecturerProfileFragmentView.create(lecturer))
+                    .addToBackStack(null)
+                    .commit();
         });
 
         lecturersView = container.findViewById(R.id.lecturersView);

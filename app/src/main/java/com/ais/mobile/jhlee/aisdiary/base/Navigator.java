@@ -68,9 +68,7 @@ public class Navigator {
         context.startActivity(new Intent(context, ContactAisActivityView.class));
     }
 
-    public void navigateToMailToActivityView(Context context) {
-        String recipients = AndroidContext.instance().getString(R.string.mailto_contact_ais);
-
+    public void navigateToMailToActivityView(Context context, String recipients) {
         Intent email = new Intent(Intent.ACTION_SENDTO);
         email.setData(Uri.parse("mailto:" + recipients));
 

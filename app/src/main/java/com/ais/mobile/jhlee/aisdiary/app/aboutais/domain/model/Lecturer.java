@@ -1,6 +1,8 @@
 package com.ais.mobile.jhlee.aisdiary.app.aboutais.domain.model;
 
 import android.content.ContentValues;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.ais.mobile.jhlee.aisdiary.app.aboutais.domain.LecturerDao;
 
@@ -9,7 +11,7 @@ import com.ais.mobile.jhlee.aisdiary.app.aboutais.domain.LecturerDao;
  * Author: Jun Hyoung Lee
  * Email: niceguy0315@hotmail.com
  */
-public class Lecturer {
+public class Lecturer implements Parcelable {
 
     private long id = -1;
     private String name;
@@ -17,6 +19,8 @@ public class Lecturer {
     private String mail;
     private String qualifications;
     private String mainTeachingField;
+
+    public Lecturer() { }
 
     public long getId() {
         return id;
@@ -81,4 +85,39 @@ public class Lecturer {
         if (withId) values.put(LecturerDao.COLUMN_ID, id);
         return values;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(id);
+        dest.writeString(name);
+        dest.writeString(phone);
+        dest.writeString(mail);
+        dest.writeString(qualifications);
+        dest.writeString(mainTeachingField);
+    }
+
+    public Lecturer(Parcel in) {
+        id = in.readLong();
+        name = in.readString();
+        phone = in.readString();
+        mail = in.readString();
+        qualifications = in.readString();
+        mainTeachingField = in.readString();
+    }
+
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public Lecturer createFromParcel(Parcel in) {
+            return new Lecturer(in);
+        }
+
+        public Lecturer[] newArray(int size) {
+            return new Lecturer[size];
+        }
+    };
 }

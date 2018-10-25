@@ -139,7 +139,8 @@ public class ContactAisActivityView extends MvpActivityView<ContactAisView, Cont
 
         // contact ais mail click
         findViewById(R.id.fab).setOnClickListener(view -> {
-            AndroidContext.instance().navigator().navigateToMailToActivityView(ContactAisActivityView.this);
+            AndroidContext.instance().navigator().navigateToMailToActivityView(ContactAisActivityView.this,
+                    AndroidContext.instance().getString(R.string.mailto_contact_ais));
         });
 
         findViewById(R.id.campusActionView).setOnClickListener(view -> {

@@ -46,5 +46,6 @@
     <string name="msg_invalid_task_data">Invalid task data.</string>
     <string name="msg_task_successfully_deleted">Task successfully deleted.</string>
     <string name="msg_task_successfully_edited">Task successfully edited.</string>
+    <string name="msg_invalid_arguments">Invalid arguments</string>
 
 </resources>
