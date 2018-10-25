@@ -15,6 +15,11 @@ import com.ais.mobile.jhlee.aisdiary.base.BaseActivity;
 import com.ais.mobile.jhlee.aisdiary.base.Navigator;
 import com.ais.mobile.jhlee.aisdiary.ui.adapter.DiaryPagerAdapter;
 
+/**
+ * Created: 24/10/2018
+ * Author: Jun Hyoung Lee
+ * Email: niceguy0315@hotmail.com
+ */
 public class DiaryActivityView extends BaseActivity {
 
     private ViewPager tabContents;
@@ -37,6 +42,7 @@ public class DiaryActivityView extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
     }
+
 
     //----------------------------------------------------------------------------------------------
     // methods

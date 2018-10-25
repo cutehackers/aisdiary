@@ -59,11 +59,13 @@
             android:label="@string/edit_event_activity_title" />
         <activity
             android:name=".app.diary.NewTaskActivityView"
-            android:label="@string/new_task_activity_title"
-            />
+            android:label="@string/new_task_activity_title" />
         <activity
             android:name=".app.diary.EditTaskActivityView"
-            android:label="@string/edit_task_activity_title"
+            android:label="@string/edit_task_activity_title" />
+        <activity
+            android:name=".app.aboutais.AboutAisActivityView"
+            android:label="@string/about_ais_activity_title"
             />
     </application>
 

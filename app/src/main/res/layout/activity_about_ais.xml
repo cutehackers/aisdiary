@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.aboutais.AboutAisActivityView">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabsView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:tabMode="fixed"
+        app:tabGravity="fill"
+        app:tabTextColor="#fff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+        <android.support.design.widget.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/about_ais_tab_name"
+            />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/about_programmes_tab_name"
+            />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/about_lecturers_tab_name"
+            />
+    </android.support.design.widget.TabLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tabsView">
+
+        <fragment
+            android:name="com.ais.mobile.jhlee.aisdiary.app.aboutais.AisFragmentView"
+            android:id="@+id/ais"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <fragment
+            android:name="com.ais.mobile.jhlee.aisdiary.app.aboutais.ProgrammeFragmentView"
+            android:id="@+id/programmes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <fragment
+            android:name="com.ais.mobile.jhlee.aisdiary.app.aboutais.LecturerFragmentView"
+            android:id="@+id/lecturers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>

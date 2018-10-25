@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 
+import com.ais.mobile.jhlee.aisdiary.app.aboutais.domain.AboutAisDataSource;
 import com.ais.mobile.jhlee.aisdiary.app.contactais.domain.ContactAisDataSource;
 import com.ais.mobile.jhlee.aisdiary.app.diary.domain.DiaryDataSource;
 
@@ -36,14 +37,17 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        AboutAisDataSource.instance().createTables(db);
         ContactAisDataSource.instance().createTables(db);
         DiaryDataSource.instance().createTables(db);
 
         ContactAisDataSource.instance().addSampleModels(db);
+        AboutAisDataSource.instance().addSampleModels(db);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        AboutAisDataSource.instance().dropTables(db);
         ContactAisDataSource.instance().dropTables(db);
         DiaryDataSource.instance().dropTables(db);
         onCreate(db);

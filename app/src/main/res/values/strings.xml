@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">AisDiary</string>
+    <string name="about_ais_activity_title">About</string>
     <string name="new_event_activity_title">New event</string>
     <string name="edit_event_activity_title">Edit event</string>
     <string name="new_task_activity_title">New task</string>
     <string name="edit_task_activity_title">Edit task</string>
     <string name="mailto_contact_ais">enquiry@ais.ac.nz</string>
     <string name="mailto_title">Contact AIS</string>
+    <string name="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
 
     <string name="action_about_ais">About AIS</string>
     <string name="action_schedule">Schedule</string>
@@ -30,6 +32,12 @@
 
     <string name="empty_task">No tasks</string>
     <string name="new_task_content_hint">New task</string>
+
+    <string name="about_ais_tab_name">AIS</string>
+    <string name="about_programmes_tab_name">Programmes</string>
+    <string name="about_lecturers_tab_name">Lecturers</string>
+    <string name="empty_lecturers">No lecturers</string>
+    <string name="about_lecturer_search_input_hint">Search</string>
 
     <string name="msg_doesnt_support_mail_service">This device doesn\'t support email service. Please install email support application.</string>
     <string name="msg_invalid_event_data">Invalid event data.</string>

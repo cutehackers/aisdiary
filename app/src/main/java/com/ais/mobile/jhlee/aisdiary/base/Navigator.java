@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
 import com.ais.mobile.jhlee.aisdiary.R;
+import com.ais.mobile.jhlee.aisdiary.app.aboutais.AboutAisActivityView;
 import com.ais.mobile.jhlee.aisdiary.app.contactais.ContactAisActivityView;
 import com.ais.mobile.jhlee.aisdiary.app.diary.DiaryActivityView;
 import com.ais.mobile.jhlee.aisdiary.app.diary.EditEventActivityView;
@@ -32,6 +33,10 @@ public class Navigator {
 
     public void navigateToHomeActivityView(Context context) {
         context.startActivity(new Intent(context, HomeActivityView.class));
+    }
+
+    public void navigateToAboutAisActivityView(Context context) {
+        context.startActivity(new Intent(context, AboutAisActivityView.class));
     }
 
     public void navigateToDiaryActivityView(Context context) {

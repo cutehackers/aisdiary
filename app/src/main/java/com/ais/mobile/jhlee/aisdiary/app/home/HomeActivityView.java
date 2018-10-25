@@ -40,6 +40,7 @@ public class HomeActivityView extends BaseActivity {
 
         switch (item.getItemId()) {
             case R.id.action_about_ais: {
+                AndroidContext.instance().navigator().navigateToAboutAisActivityView(this);
                 return true;
             }
             case R.id.action_schedule: {
