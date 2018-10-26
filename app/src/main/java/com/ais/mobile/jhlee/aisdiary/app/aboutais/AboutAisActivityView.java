@@ -16,10 +16,10 @@ import com.ais.mobile.jhlee.aisdiary.base.BaseActivity;
  */
 public class AboutAisActivityView extends BaseActivity {
 
-    private static final int FRAG_TYPE_AIS = 0;
-    private static final int FRAG_TYPE_PROGRAMME = 1;
-    private static final int FRAG_TYPE_LECTURER = 2;
-    private static final int FRAG_TYPE_COUNT = 3;
+//    private static final int FRAG_TYPE_AIS = 0;
+    private static final int FRAG_TYPE_PROGRAMME = 0;
+    private static final int FRAG_TYPE_LECTURER = 1;
+    private static final int FRAG_TYPE_COUNT = 2;
 
     private Fragment[] fragments;
 
@@ -61,12 +61,12 @@ public class AboutAisActivityView extends BaseActivity {
         FragmentManager fmtmgr = getSupportFragmentManager();
 
         fragments = new Fragment[] {
-                fmtmgr.findFragmentById(R.id.ais),
+//                fmtmgr.findFragmentById(R.id.ais),
                 fmtmgr.findFragmentById(R.id.programmes),
                 fmtmgr.findFragmentById(R.id.lecturers)
         };
 
-        showFragmentByType(FRAG_TYPE_AIS);
+        showFragmentByType(FRAG_TYPE_PROGRAMME);
     }
 
     private void showFragmentByType(int fragType) {

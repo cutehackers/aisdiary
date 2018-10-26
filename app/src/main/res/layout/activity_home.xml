@@ -14,7 +14,7 @@
         android:layout_gravity="bottom"
         app:fabAlignmentMode="end"
         app:fabCradleRoundedCornerRadius="16dp"
-        app:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="@color/primary"
         />
 
     <android.support.design.widget.FloatingActionButton

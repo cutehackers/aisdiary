@@ -43,9 +43,9 @@ public class HomeActivityView extends BaseActivity {
                 AndroidContext.instance().navigator().navigateToAboutAisActivityView(this);
                 return true;
             }
-            case R.id.action_schedule: {
-                return true;
-            }
+//            case R.id.action_schedule: {
+//                return true;
+//            }
             case R.id.action_diary: {
                 AndroidContext.instance().navigator().navigateToDiaryActivityView(this);
                 return true;

@@ -8,11 +8,11 @@
         android:title="@string/action_about_ais"
         app:showAsAction="always"/>
 
-    <item
-        android:id="@+id/action_schedule"
-        android:icon="@drawable/ic_schedule"
-        android:title="@string/action_schedule"
-        app:showAsAction="always"/>
+    <!--<item-->
+        <!--android:id="@+id/action_schedule"-->
+        <!--android:icon="@drawable/ic_schedule"-->
+        <!--android:title="@string/action_schedule"-->
+        <!--app:showAsAction="always"/>-->
 
     <item
         android:id="@+id/action_diary"

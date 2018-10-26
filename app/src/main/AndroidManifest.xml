@@ -42,27 +42,35 @@
             android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".app.home.HomeActivityView"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".app.contactais.ContactAisActivityView" />
-        <activity android:name=".app.diary.DiaryActivityView" />
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".app.contactais.ContactAisActivityView"
+            />
+        <activity
+            android:name=".app.diary.DiaryActivityView"
+            />
         <activity
             android:name=".app.diary.NewEventActivityView"
-            android:label="@string/new_event_activity_title" />
+            android:label="@string/new_event_activity_title"
+            />
         <activity
             android:name=".app.diary.EditEventActivityView"
-            android:label="@string/edit_event_activity_title" />
+            android:label="@string/edit_event_activity_title"
+            />
         <activity
             android:name=".app.diary.NewTaskActivityView"
-            android:label="@string/new_task_activity_title" />
+            android:label="@string/new_task_activity_title"
+            />
         <activity
             android:name=".app.diary.EditTaskActivityView"
-            android:label="@string/edit_task_activity_title" />
+            android:label="@string/edit_task_activity_title"
+            />
         <activity
             android:name=".app.aboutais.AboutAisActivityView"
             android:label="@string/about_ais_activity_title"

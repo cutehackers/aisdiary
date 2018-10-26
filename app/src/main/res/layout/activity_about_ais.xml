@@ -11,18 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="@color/primary"
         app:tabMode="fixed"
         app:tabGravity="fill"
         app:tabTextColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         >
 
-        <android.support.design.widget.TabItem
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/about_ais_tab_name"
-            />
+        <!--<android.support.design.widget.TabItem-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:text="@string/about_ais_tab_name"-->
+            <!--/>-->
 
         <android.support.design.widget.TabItem
             android:layout_width="match_parent"
@@ -43,12 +43,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tabsView">
 
-        <fragment
-            android:name="com.ais.mobile.jhlee.aisdiary.app.aboutais.AisFragmentView"
-            android:id="@+id/ais"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+        <!--<fragment-->
+            <!--android:name="com.ais.mobile.jhlee.aisdiary.app.aboutais.AisFragmentView"-->
+            <!--android:id="@+id/ais"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--/>-->
 
         <fragment
             android:name="com.ais.mobile.jhlee.aisdiary.app.aboutais.ProgrammeFragmentView"
