@@ -5,6 +5,7 @@
     <string name="edit_event_activity_title">Edit event</string>
     <string name="new_task_activity_title">New task</string>
     <string name="edit_task_activity_title">Edit task</string>
+    <string name="diary_activity_title">Diary</string>
     <string name="mailto_contact_ais">enquiry@ais.ac.nz</string>
     <string name="mailto_title">Contact AIS</string>
     <string name="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>

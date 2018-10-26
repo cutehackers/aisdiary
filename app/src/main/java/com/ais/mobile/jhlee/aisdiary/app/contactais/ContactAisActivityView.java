@@ -172,5 +172,7 @@ public class ContactAisActivityView extends MvpActivityView<ContactAisView, Cont
                 presenter.markTransport(position);
             }
         });
+
+        findViewById(R.id.closeView).setOnClickListener(view -> finish());
     }
 }

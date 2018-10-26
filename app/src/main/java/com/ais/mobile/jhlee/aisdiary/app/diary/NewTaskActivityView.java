@@ -2,11 +2,14 @@ package com.ais.mobile.jhlee.aisdiary.app.diary;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.ais.mobile.jhlee.aisdiary.R;
+import com.ais.mobile.jhlee.aisdiary.base.AndroidContext;
 import com.ais.mobile.jhlee.aisdiary.mvp.MvpActivityView;
 
 /**
@@ -43,7 +46,12 @@ public class NewTaskActivityView extends MvpActivityView<NewTaskView, NewTaskPre
         switch (item.getItemId()) {
             case R.id.action_done: {
                 String content = contentView.getText().toString();
-                presenter.newTask(content.trim());
+                if (TextUtils.isEmpty(content)) {
+                    Toast.makeText(AndroidContext.instance().getApplication(),
+                            R.string.msg_invalid_task_data,Toast.LENGTH_LONG).show();
+                } else {
+                    presenter.newTask(content.trim());
+                }
                 return true;
             }
 

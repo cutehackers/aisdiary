@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.widget.TextView;
 
 import com.ais.mobile.jhlee.aisdiary.R;
 import com.ais.mobile.jhlee.aisdiary.base.BaseActivity;
@@ -22,6 +23,7 @@ public class AboutAisActivityView extends BaseActivity {
     private static final int FRAG_TYPE_COUNT = 2;
 
     private Fragment[] fragments;
+    private TextView titleView;
 
     //----------------------------------------------------------------------------------------------
     // overrides
@@ -40,6 +42,8 @@ public class AboutAisActivityView extends BaseActivity {
     // methods
 
     private void setUpViews() {
+        titleView = findViewById(R.id.titleView);
+
         TabLayout tabsView = findViewById(R.id.tabsView);
         tabsView.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -74,6 +78,8 @@ public class AboutAisActivityView extends BaseActivity {
             throw new IllegalStateException("Fragment is not initialize yet!");
         }
 
+        setTitleTextByFragmentType(fragType);
+
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
 
@@ -86,5 +92,17 @@ public class AboutAisActivityView extends BaseActivity {
         }
 
         transaction.commit();
+    }
+
+    private void setTitleTextByFragmentType(int fragmentType) {
+        switch (fragmentType) {
+            case FRAG_TYPE_PROGRAMME: {
+                titleView.setText(getString(R.string.about_programmes_tab_name));
+            } break;
+
+            case FRAG_TYPE_LECTURER: {
+                titleView.setText(getString(R.string.about_lecturers_tab_name));
+            } break;
+        }
     }
 }

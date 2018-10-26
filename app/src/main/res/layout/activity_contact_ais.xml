@@ -91,4 +91,16 @@
         app:layout_anchorGravity="right|end"
         />
 
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/closeView"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center_vertical"
+        android:src="@drawable/ic_close"
+        />
+
 </android.support.design.widget.CoordinatorLayout>

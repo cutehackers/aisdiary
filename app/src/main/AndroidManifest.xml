@@ -38,22 +38,24 @@
             android:required="false" />
 
         <activity
-            android:name=".app.welcome.SplashActivityView"
-            android:theme="@style/AppTheme.Launcher">
+            android:theme="@style/AppTheme.Launcher"
+            android:name=".app.welcome.SplashActivityView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".app.home.HomeActivityView"
             android:theme="@style/AppTheme.NoActionBar"
+            android:name=".app.home.HomeActivityView"
             />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name=".app.contactais.ContactAisActivityView"
             />
         <activity
             android:name=".app.diary.DiaryActivityView"
+            android:label="@string/diary_activity_title"
             />
         <activity
             android:name=".app.diary.NewEventActivityView"
@@ -72,6 +74,7 @@
             android:label="@string/edit_task_activity_title"
             />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name=".app.aboutais.AboutAisActivityView"
             android:label="@string/about_ais_activity_title"
             />
