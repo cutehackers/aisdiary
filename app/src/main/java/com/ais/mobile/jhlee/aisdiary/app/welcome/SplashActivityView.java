@@ -1,6 +1,7 @@
 package com.ais.mobile.jhlee.aisdiary.app.welcome;
 
 import android.os.Bundle;
+import android.os.Handler;
 
 import com.ais.mobile.jhlee.aisdiary.R;
 import com.ais.mobile.jhlee.aisdiary.base.AndroidContext;
@@ -17,7 +18,9 @@ public class SplashActivityView extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        AndroidContext.instance().navigator().navigateToHomeActivityView(this);
-        finish();
+        new Handler().postDelayed(() -> {
+            AndroidContext.instance().navigator().navigateToHomeActivityView(this);
+            finish();
+        }, 1000);
     }
 }
