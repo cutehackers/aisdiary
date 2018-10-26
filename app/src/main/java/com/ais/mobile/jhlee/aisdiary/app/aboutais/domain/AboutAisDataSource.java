@@ -3,6 +3,7 @@ package com.ais.mobile.jhlee.aisdiary.app.aboutais.domain;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.ais.mobile.jhlee.aisdiary.app.aboutais.domain.model.Lecturer;
+import com.ais.mobile.jhlee.aisdiary.app.aboutais.domain.model.Programme;
 import com.ais.mobile.jhlee.aisdiary.base.Database;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class AboutAisDataSource {
     private static AboutAisDataSource INSTANCE;
 
     private LecturerDao lecturerDao = new LecturerDao();
+    private ProgrammeDao programmeDao = new ProgrammeDao();
 
 
     private AboutAisDataSource() { }
@@ -32,10 +34,12 @@ public class AboutAisDataSource {
 
     public final void createTables(SQLiteDatabase database) {
         database.execSQL(LecturerDao.SQL_CREATE);
+        database.execSQL(ProgrammeDao.SQL_CREATE);
     }
 
     public final void dropTables(SQLiteDatabase database) {
         database.execSQL(LecturerDao.SQL_DROP);
+        database.execSQL(ProgrammeDao.SQL_DROP);
     }
 
     public long getLecturerCount() {
@@ -52,6 +56,26 @@ public class AboutAisDataSource {
 
     public long add(Lecturer lecturer) {
         return lecturerDao.add(Database.instance().getWritableDatabase(), lecturer);
+    }
+
+    public List<String> getDepartmentList() {
+        SQLiteDatabase database = Database.instance().getWritableDatabase();
+
+        ensureProgrammeModels(database);
+        return programmeDao.getDepartmentList(database);
+    }
+
+    public List<Programme> getProgrammeList() {
+        SQLiteDatabase database = Database.instance().getWritableDatabase();
+
+        ensureProgrammeModels(database);
+        return programmeDao.getList(database);
+    }
+
+    private void ensureProgrammeModels(SQLiteDatabase database) {
+        if (programmeDao.getCount(database) < 1) {
+            programmeDao.addSampleModels(database);
+        }
     }
 
     public void addSampleModels(SQLiteDatabase database) {

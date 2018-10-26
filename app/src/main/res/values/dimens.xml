@@ -2,4 +2,6 @@
 <resources>
     <dimen name="evnet_horizontal_margin">8dp</dimen>
     <dimen name="evnet_vertical_margin">8dp</dimen>
+    <dimen name="two_line_item_height">72dp</dimen>
+    <dimen name="three_line_item_height">88dp</dimen>
 </resources>

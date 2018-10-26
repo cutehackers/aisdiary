@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".app.aboutais.ProgrammeFragmentView">
+    android:background="?android:colorBackground">
 
-    <ListView
-        android:id="@+id/programmeView"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/courseView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:scrollbars="vertical"
+        android:scrollbarStyle="outsideOverlay"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         />
+
 </android.support.constraint.ConstraintLayout>
