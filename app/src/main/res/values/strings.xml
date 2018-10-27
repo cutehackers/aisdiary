@@ -22,6 +22,8 @@
     <string name="action_delete">Delete</string>
     <string name="action_campus">Campus</string>
     <string name="action_transport">Transport</string>
+    <string name="action_event">Event</string>
+    <string name="action_task">Task</string>
 
     <string name="home_schedule_title">To event</string>
     <string name="home_schedule_to_event_msg">Do you want to add this schedule to my event?</string>

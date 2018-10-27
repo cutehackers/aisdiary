@@ -55,6 +55,7 @@
             android:name=".app.contactais.ContactAisActivityView"
             />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name=".app.diary.DiaryActivityView"
             android:label="@string/diary_activity_title"
             />

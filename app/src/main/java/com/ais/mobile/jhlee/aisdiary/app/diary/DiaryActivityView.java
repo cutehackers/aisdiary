@@ -3,10 +3,13 @@ package com.ais.mobile.jhlee.aisdiary.app.diary;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.bottomappbar.BottomAppBar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.ais.mobile.jhlee.aisdiary.R;
@@ -43,17 +46,45 @@ public class DiaryActivityView extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.diary_option_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_event: {
+                tabContents.setCurrentItem(DiaryPagerAdapter.DIARY_CONTENT_EVENT);
+                return true;
+            }
+            case R.id.action_task: {
+                tabContents.setCurrentItem(DiaryPagerAdapter.DIARY_CONTENT_TASK);
+                return true;
+            }
+            default: {
+                return super.onOptionsItemSelected(item);
+            }
+        }
+    }
+
 
     //----------------------------------------------------------------------------------------------
     // methods
 
     private void setUpViews() {
+        BottomAppBar appbar = findViewById(R.id.appbar);
+        setSupportActionBar(appbar);
+
+        findViewById(R.id.closeView).setOnClickListener(view -> finish());
+
         tabContents = findViewById(R.id.tabContentsView);
         tabAdapter = new DiaryPagerAdapter(getSupportFragmentManager());
         tabContents.setAdapter(tabAdapter);
 
-        TabLayout tabs = findViewById(R.id.tabsView);
-        tabs.setupWithViewPager(tabContents);
+//        TabLayout tabs = findViewById(R.id.tabsView);
+//        tabs.setupWithViewPager(tabContents);
 
         findViewById(R.id.fab).setOnClickListener(this::onFabClick);
     }
@@ -63,7 +94,7 @@ public class DiaryActivityView extends BaseActivity {
 
         switch (current) {
             case DiaryPagerAdapter.DIARY_CONTENT_EVENT: {
-                Fragment fragment = tabAdapter.getFragment(DiaryPagerAdapter.DIARY_CONTENT_TASK);
+                Fragment fragment = tabAdapter.getFragment(DiaryPagerAdapter.DIARY_CONTENT_EVENT);
                 AndroidContext.instance().navigator()
                         .requestToNewEventActivityView(fragment, Navigator.RC_HANDLE_NEW_EVENT);
             } break;

@@ -44,6 +44,8 @@ public class AboutAisActivityView extends BaseActivity {
     private void setUpViews() {
         titleView = findViewById(R.id.titleView);
 
+        findViewById(R.id.closeView).setOnClickListener(view -> finish());
+
         TabLayout tabsView = findViewById(R.id.tabsView);
         tabsView.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
