@@ -56,7 +56,7 @@ public class EventPresenter<VIEW extends EventView> extends MvpPresenter<VIEW> {
 
         @Override
         protected List<Event> doInBackground(Void... voids) {
-            List<Event> events = DiaryDataSource.instance().getEventListByType(EventDao.TYPE_PERSONAL);
+            List<Event> events = DiaryDataSource.instance().getEventList();
             return events;
         }
 

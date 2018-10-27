@@ -48,6 +48,7 @@
         <activity
             android:theme="@style/AppTheme.NoActionBar"
             android:name=".app.home.HomeActivityView"
+            android:label="@string/home_activity_title"
             />
         <activity
             android:theme="@style/AppTheme.NoActionBar"

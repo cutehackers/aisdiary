@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">AisDiary</string>
+    <string name="app_ok">OK</string>
+    <string name="app_cancel">Cancel</string>
+
+    <string name="home_activity_title">Schedules</string>
     <string name="about_ais_activity_title">About</string>
     <string name="new_event_activity_title">New event</string>
     <string name="edit_event_activity_title">Edit event</string>
@@ -16,9 +20,13 @@
     <string name="action_contact_us">Contact Us</string>
     <string name="action_done">Done</string>
     <string name="action_delete">Delete</string>
-
     <string name="action_campus">Campus</string>
     <string name="action_transport">Transport</string>
+
+    <string name="home_schedule_title">To event</string>
+    <string name="home_schedule_to_event_msg">Do you want to add this schedule to my event?</string>
+    <string name="home_new_schedule_success">Schedule successfully added to my event.</string>
+    <string name="home_new_schedule_confirm">View</string>
 
     <string name="contact_ais_number_type_phone">Phone</string>
     <string name="contact_ais_number_type_fax">Fax</string>

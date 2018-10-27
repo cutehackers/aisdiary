@@ -45,8 +45,8 @@ public class DiaryDataSource {
         return eventDao.getCount(Database.instance().getReadableDatabase());
     }
 
-    public List<Event> getEventListByType(String type) {
-        return eventDao.getListByType(Database.instance().getReadableDatabase(), type);
+    public List<Event> getEventList() {
+        return eventDao.getList(Database.instance().getReadableDatabase());
     }
 
     public long add(Event event) {
@@ -77,4 +77,16 @@ public class DiaryDataSource {
         return taskDao.deleteItemById(Database.instance().getWritableDatabase(), task.getId());
     }
 
+    public List<Event> getScheduleList() {
+        SQLiteDatabase database = Database.instance().getWritableDatabase();
+
+        ensureScheduleModels(database);
+        return eventDao.getScheduleList(database);
+    }
+
+    private void ensureScheduleModels(SQLiteDatabase database) {
+        if (eventDao.getScheduleCount(database) < 1) {
+            eventDao.addSampleModels(database);
+        }
+    }
 }
