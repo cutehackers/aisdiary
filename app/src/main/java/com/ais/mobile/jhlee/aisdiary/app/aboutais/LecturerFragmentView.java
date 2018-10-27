@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.widget.LinearLayoutManager;
@@ -45,6 +46,8 @@ public class LecturerFragmentView extends MvpFragmentView<LecturerView, Lecturer
 
     private static final String ARGS_SEARCH_QUERY = "search_query";
     private static final int READ_QUERY_ID = 1;
+
+    public static final String LECTURER_PROFILE_TAG = "lecturer_profile_tag";
 
     private String searchQuery;
     private boolean searchQueryChanged = false;
@@ -196,9 +199,15 @@ public class LecturerFragmentView extends MvpFragmentView<LecturerView, Lecturer
         emptyView = container.findViewById(R.id.emptyView);
 
         adapter = new LecturerAdapter((holder, lecturer) -> {
+            // remove profile view if already exists
+            Fragment fragment = getActivity().getSupportFragmentManager().findFragmentByTag(LECTURER_PROFILE_TAG);
+            if (fragment != null) {
+                getActivity().getSupportFragmentManager().popBackStack();
+            }
+
             // navigate to lecturer detail view
             getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, LecturerProfileFragmentView.create(lecturer))
+                    .replace(R.id.fragment_container, LecturerProfileFragmentView.create(lecturer), LECTURER_PROFILE_TAG)
                     .addToBackStack(null)
                     .commit();
         });

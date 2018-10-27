@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.ais.mobile.jhlee.aisdiary.R;
 import com.ais.mobile.jhlee.aisdiary.base.BaseActivity;
 
+import static com.ais.mobile.jhlee.aisdiary.app.aboutais.LecturerFragmentView.LECTURER_PROFILE_TAG;
+
 /**
  * Created: 25/10/2018
  * Author: Jun Hyoung Lee
@@ -44,12 +46,25 @@ public class AboutAisActivityView extends BaseActivity {
     private void setUpViews() {
         titleView = findViewById(R.id.titleView);
 
-        findViewById(R.id.closeView).setOnClickListener(view -> finish());
+        findViewById(R.id.closeView).setOnClickListener(view -> {
+            // remove profile view if already exists
+            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                getSupportFragmentManager().popBackStack();
+            } else {
+                finish();
+            }
+        });
 
         TabLayout tabsView = findViewById(R.id.tabsView);
         tabsView.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                // remove profile view if already exists
+                Fragment fragment = getSupportFragmentManager().findFragmentByTag(LECTURER_PROFILE_TAG);
+                if (fragment != null) {
+                    getSupportFragmentManager().popBackStack();
+                }
+
                 showFragmentByType(tab.getPosition());
             }
 
